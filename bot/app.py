@@ -47,5 +47,9 @@ def admin():
 
 if __name__ == '__main__':
     init_db()
-    # host='0.0.0.0' заставляет сервер слушать запросы со всех устройств в сети
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    import os
+    # Берем порт, который даст Render, или 10000 по умолчанию
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+
+
